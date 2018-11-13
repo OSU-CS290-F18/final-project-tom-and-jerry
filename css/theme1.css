@@ -1,0 +1,45 @@
+html{
+	background-color: #ff9f00;
+	cursor:url("https://media.giphy.com/media/xVy9eAfx90Ila/giphy.gif"),default;
+}
+#nav{
+    background-color: #d76c29;
+}
+#content{
+	background-color: #ff9f00;
+}
+.nav-button{
+	color:#E2F9FF;
+	font-weight: bolder;
+}
+.navbutton{
+	color:#E2F9FF;
+	font-weight: bolder;
+}
+.navbutton:hover{
+	animation:navAni 500ms;
+	background-color: #c84a1a;
+}
+@keyframes navAni
+{
+	0%   {background:#D76C29;}
+	10%  {background:#D66928;}
+	20%  {background:#D46526;}
+	30%  {background:#D36225;}
+	40%  {background:#D15E23;}
+	50%  {background:#D05B22;}
+	60%  {background:#CE5820;}
+	70%  {background:#CD541F;}
+	80%  {background:#CB511D;}
+	90%  {background:#CA4D1C;}
+	100% {background:#c84a1a;}
+}
+#toolbox{
+	background: #febb00;
+}
+#bigbox{
+	background:#D36225;
+}
+.post{
+	background: #A5E63E;
+}
