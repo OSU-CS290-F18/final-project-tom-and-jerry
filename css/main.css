@@ -54,14 +54,37 @@ body{
 	white-space: nowrap;
 	overflow-x: scroll;
 	overflow-y: hidden;
+	
 }
 .post{
 	display: inline-block;
+	vertical-align: middle;
+	margin-top: inherit;
 	margin-left: 10px;
 	margin-right: 10px;
-	height: 700px;
-	width: 300px;
+	height: 500px;
+	width: 350px;
 }
+.mediabox{
+	width:100%;
+	height: 300px;
+	padding: 0 0 0 0;
+	z-index: 98;
+	display: flex;
+	align-items: center;
+}
+canvas{
+}
+.infobox{
+	width:100%;
+	height:200px;
+	padding: 0 0 0 0;
+}
+.infobox img{
+	height:30%;
+}
+
+
 @media screen and (max-device-height:800px){
 	.post{
 		height: 450px;
