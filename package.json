@@ -3,6 +3,7 @@
     "version": "1.11.13",
     "dependencies": {
         "chart.js": "^2.7.3",
+        "express": "^4.16.4",
         "moment": "^2.22.2"
     }
 }
