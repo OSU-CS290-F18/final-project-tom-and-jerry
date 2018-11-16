@@ -4,28 +4,46 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Final Project</title>
+    <meta name="language" content="English">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./css/theme1.css" />
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
     <div id="nav">
 		<div id="logobox">
 			<img id="logo" src="./logo.png">
 		</div>
-   <div id="buttons">
-   <div class="navbutton">HOME</div>
-   <div class="navbutton">SEARCH</div>
-   <div class="navbutton">SETTING</div>
+   <div class="navbutton" id="login-button"><i class="fas fa-sign-in-alt"></i>LOGIN</div>
+   <div class="navbutton" id="search-button"><i class="fas fa-search"></i>SEARCH
    </div>
+   <div id="filterbox" class="hidden">
+   <div></div>
+   <div class="filter-input-container">
+   <lable>Text</lable><input type="text">
+   </div>
+<div class="filter-input-container">
+  <lable>Size</lable><input  type="range"><lable> 0</lable>
+ </div>
+    <div class="filter-input-container">
+   <lable>Type</lable><select>
+  <option value="Any">Any</option>
+  <option value="Pie">Pie</option>
+  <option value="Bar">Bar</option>
+</select>
+   </div>
+   </div>
+   <div class="navbutton" id= "setting-button"><i class="fas fa-cog"></i>SETTING</div>
+    <div class="navbutton" id= "about-button"><i class="fas fa-cog"></i>ABOUT</div>
+
     </div>
 	<div id="content">
 		<div id="toolbox"></div>
 		<div id="bigbox">
 		<div id="results">
 			<div class="post">
-				<div class="mediabox"><canvas id="myChart" width="100%" ></canvas></div>
+				<div class="mediabox"><canvas id="myChart" ></canvas></div>
 				<div class="infobox">
 					<div>
 						<button>big</button>

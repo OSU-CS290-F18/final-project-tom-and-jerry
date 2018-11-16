@@ -4,6 +4,9 @@ html{
    max-height: 100%;
    font-family: kanit;
 }
+i{
+	margin-right:10px;
+}
 body{
 	height:100%;
 	width: 100%;
@@ -13,6 +16,7 @@ body{
 	height:100%;
 	width: 16%;
 	float:left;
+	display:block;
 }
 
 #logobox{
@@ -25,6 +29,17 @@ body{
 #logo{
 	width:80%;
 }
+#filterbox{
+	width:100%;
+}
+.hidden{
+	display:none;
+}
+.filter-input-container{
+	padding-left: 20px;
+	width:inherit;
+	margin-bottom: 5px;
+}
 #content{
 	height: 100%;
 	width: 84%;
@@ -34,6 +49,7 @@ body{
 	width: 100%;
 	height:auto;
 }
+
 .navbutton{
 	padding-left: 5%;
 	padding-right: 5%;
@@ -44,7 +60,7 @@ body{
 	cursor:default;
 }
 #toolbox{
-	height: 10%
+	height: 10%;
 }
 #bigbox{
 	height: 90%;
@@ -66,6 +82,10 @@ body{
 	height: 500px;
 	width: 350px;
 }
+.post-big{
+	height:700px;
+	width:500px;
+}
 .mediabox{
 	width:100%;
 	height: 300px;
@@ -74,35 +94,18 @@ body{
 	display: flex;
 	align-items: center;
 }
-canvas{
+.mediabox-big{
+	height:400px;
 }
+
 .infobox{
 	width:100%;
 	height:200px;
 	padding: 0 0 0 0;
 }
-.infobox img{
+.infobox img,.infobox-big img{
 	height:30%;
 }
-
-
-@media screen and (max-device-height:800px){
-	.post{
-		height: 450px;
-		width:250px;
-	}
+.infobox-big{
+	height:300px;
 }
-@media screen and (max-device-height:500px){
-	.post{
-		height: 300px;
-		width:250px;
-	}
-}
-@media screen and (max-device-height:300px){
-	.post{
-		height: 100px;
-		width:250px;
-	}
-}
-
-
