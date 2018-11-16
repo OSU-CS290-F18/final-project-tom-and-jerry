@@ -1,9 +1,26 @@
 var test =document.getElementsByClassName("post");
-var testbutton=document.getElementsByTagName("button");
-testbutton[0].onclick=function(){
+var testbutton=document.getElementsByTagName("button")[0];
+testbutton.onclick=function(){
 	
+	var media=test[0].getElementsByClassName("mediabox")[0];
+	var info=test[0].getElementsByClassName("infobox")[0];
+	var chart=test[0].getElementsByTagName("canvas")[0];
+	test[0].classList.add("post-big")
+	media.classList.add("mediabox-big");
+	info.classList.add("infobox-big");
+	myChart.resize();
 };
-//test[0].style.height="700px";
-//test[0].getElementsByClassName("mediabox")[0].style.height="450px";
-//test[0].getElementsByClassName("infobox")[0].style.height="250px";
-myChart.data.datasets["0"].data[0]="50"
+
+/*nav*/
+var btsearch=document.getElementById("search-button");
+btsearch.onclick=function(){
+	var searchbox=document.getElementById("filterbox");
+	var hide=searchbox.className;
+	if(hide==="hidden"){
+		searchbox.classList.remove("hidden");
+	}
+	else{
+		searchbox.classList.add("hidden");
+	}
+};
+
