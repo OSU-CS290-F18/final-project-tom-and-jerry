@@ -1,26 +1,70 @@
-var test =document.getElementsByClassName("post");
-var testbutton=document.getElementsByTagName("button")[0];
-testbutton.onclick=function(){
-	
-	var media=test[0].getElementsByClassName("mediabox")[0];
-	var info=test[0].getElementsByClassName("infobox")[0];
-	var chart=test[0].getElementsByTagName("canvas")[0];
-	test[0].classList.add("post-big")
-	media.classList.add("mediabox-big");
-	info.classList.add("infobox-big");
-	myChart.resize();
-};
-
 /*nav*/
-var btsearch=document.getElementById("search-button");
-btsearch.onclick=function(){
-	var searchbox=document.getElementById("filterbox");
-	var hide=searchbox.className;
+
+var addbutton=document.getElementById("btadd")
+var searchbutton=document.getElementById("btsearch");
+/*createbox*/
+var closebutton=document.getElementById("btclose");
+var canclebutton=document.getElementById("btcancle");
+var createbutton=document.getElementById("btcreate");
+var createbox=document.getElementById("createbox");
+var layer=document.getElementById("layer");
+
+/*datas*/
+var inputtitle=document.getElementById("titleinput");
+var inputdesc=document.getElementById("descinput");
+var inputpub=document.getElementById("pubinput");
+var inputtype=document.getElementById("typeinput");
+var inputoptions=document.getElementById("optionsinput");
+var photourlinput=document.getElementById("photoinput");
+var inputnames=createbox.getElementsByClassName("inputname");
+var inputvalues=createbox.getElementsByClassName("inputvalue");
+/*show hide*/
+function showandhide(box){
+	var hide=box.className;
 	if(hide==="hidden"){
-		searchbox.classList.remove("hidden");
+		box.classList.remove("hidden");
 	}
 	else{
-		searchbox.classList.add("hidden");
+		box.classList.add("hidden");
 	}
+}
+/*create*/
+function builddataset(){
+	
+}
+closebutton.onclick=function(){
+	closecreatebox();
+};
+canclebutton.onclick=function(){
+	closecreatebox();
+};
+addbutton.onclick=function(){
+	showandhide(createbox);
+	showandhide(layer);
+}
+function closecreatebox(){
+	showandhide(createbox);
+	showandhide(layer);
+	inputtitle.value="";
+	inputdesc.value="";
+	inputpub.value="";
+	inputtype.selectedIndex=0;
+	inputoptions.selectedIndex=0;
+	photourlinput.value="";
+	var index=0;
+	for(index=0;index<6;index++){
+		inputnames[index].value="";
+		inputvalues[index].value=0;
+	}
+
+}
+searchbutton.onclick=function(){
+	var searchbox=document.getElementById("filterbox");
+	showandhide(searchbox);
 };
 
+var btsubmit=document.getElementsByClassName("submitbutton")[0];
+btsubmit.onclick=function(){
+	var mediabox=document.getElementsByClassName("mediabox")[0];
+	showandhide(mediabox);
+};

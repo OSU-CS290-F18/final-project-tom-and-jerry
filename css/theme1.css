@@ -35,7 +35,9 @@ html{
 }
 #toolbox{
 	background: #febb00;
+	color: aliceblue;
 }
+
 #bigbox{
 	background:#D36225;
 }
@@ -47,4 +49,16 @@ html{
 }
 .infobox{
 	background:  #404e73;
+}
+#createbox{
+	background: #F8F8F8;
+}
+#layer{
+	background-color:rgba(211, 96, 37, 0.75);
+}
+#datainput{
+
+}
+.inputdata{
+
 }
