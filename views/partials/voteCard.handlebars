@@ -1,0 +1,16 @@
+<div class="post" id="{{id}}" size="{{size}}" type="{{type}}">
+				<div class="mediabox">
+                    <img src="{{photoURL}}" class="imgBox">
+                    <div class="textBox">{{description}}</div>
+                </div>
+				<div class="resultbox"><canvas id="{{id}}"></canvas></div>
+				<div class="infobox"><fieldset class="votebox" >
+                    <legend></legend>
+					{{#each options}}
+                    {{> options}}
+                    {{/each}}
+
+				</fieldset><button class="submitbutton">submit</button>
+                
+				</div>
+			</div>

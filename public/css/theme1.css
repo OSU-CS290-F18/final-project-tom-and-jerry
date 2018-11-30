@@ -1,0 +1,66 @@
+html{
+	background-color: #ff9f00;
+}
+#nav{
+    background-color: #d76c29;
+}
+#content{
+	background-color: #ff9f00;
+}
+.nav-button{
+	color:#E2F9FF;
+	font-weight: bolder;
+}
+.navbutton{
+	color:#E2F9FF;
+	font-weight: bolder;
+}
+.navbutton:hover{
+	animation:navAni 500ms;
+	background-color: #c84a1a;
+}
+@keyframes navAni
+{
+	0%   {background:#D76C29;}
+	10%  {background:#D66928;}
+	20%  {background:#D46526;}
+	30%  {background:#D36225;}
+	40%  {background:#D15E23;}
+	50%  {background:#D05B22;}
+	60%  {background:#CE5820;}
+	70%  {background:#CD541F;}
+	80%  {background:#CB511D;}
+	90%  {background:#CA4D1C;}
+	100% {background:#c84a1a;}
+}
+#toolbox{
+	background: #febb00;
+	color: aliceblue;
+}
+
+#bigbox{
+	background:#D36225;
+}
+.post{
+	background: #FFFFFF;
+}
+.mediabox{
+	background: #F8F8F8;
+}
+.infobox{
+	background:  #404e73;
+	color: aliceblue;
+
+}
+#createbox{
+	background: #F8F8F8;
+}
+#layer{
+	background-color:rgba(211, 96, 37, 0.75);
+}
+#datainput{
+
+}
+.inputdata{
+
+}
