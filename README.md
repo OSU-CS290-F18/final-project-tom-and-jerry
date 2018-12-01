@@ -6,4 +6,4 @@ Team Tom_And_Jerry
               *Ying Li*  
               ~~Yujie Wang~~  
 
-[Any questions?](<xuna@oregonstate.edu>)  
+<a href="mailto:xuna@oregonstate.edu">Any questions?</a>
