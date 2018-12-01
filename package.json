@@ -15,6 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "build": "handlebars views/partials/voteCard.handlebars -f public/voteCardTemplate.js",
     "prestart": "npm run build",
     "predev": "npm run build"
   },
