@@ -141,7 +141,7 @@ margin: 0 0 0 0;
 #createbox{
 	z-index: 99;
 	margin: 0 0 0 0;
-	position: fixed;
+	position: absolute;
 	top: 5%;
 	left:30%;
 	vertical-align: middle;

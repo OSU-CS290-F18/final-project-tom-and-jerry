@@ -53,7 +53,7 @@ app.get('/', function (req, res, next) {
 //    res.status(200).render('homePage');
 //});
 
-app.get('/votes', function (req, res, next) {
+app.get('/votes/data', function (req, res, next) {
 
   var voteCollection = mongoDB.collection('vote');
   //console.log('==',voteCollection);
@@ -65,7 +65,7 @@ app.get('/votes', function (req, res, next) {
       //console.log('== vote: \n', voteDocs[0]);
       console.log("== send vote data ==");
     } 
-    next();
+    
   }); 
 });
 

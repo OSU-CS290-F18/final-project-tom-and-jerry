@@ -31,13 +31,7 @@ function showandhide(box){
 function builddataset(){
 	
 }
-closebutton.addEventListener("click",function(){closecreatebox()});
-canclebutton.addEventListener("click",function(){closecreatebox()});
 
-addbutton.addEventListener("click",function(){
-	showandhide(createbox);
-	showandhide(layer);
-});
 
 function closecreatebox(){
 	showandhide(createbox);
@@ -58,6 +52,13 @@ function closecreatebox(){
 
 
 window.addEventListener('DOMContentLoaded', function () {
+	closebutton.addEventListener("click",function(){closecreatebox()});
+	canclebutton.addEventListener("click",function(){closecreatebox()});
+
+	addbutton.addEventListener("click",function(){
+		showandhide(createbox);
+		showandhide(layer);
+	});
 	searchbutton.addEventListener("click",function(){
 		var searchbox=document.getElementById("filterbox");
 		showandhide(searchbox);

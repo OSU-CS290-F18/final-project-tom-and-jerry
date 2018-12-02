@@ -1,5 +1,6 @@
+var main = function(){
 var postRequest = new XMLHttpRequest();
-var requestURL = '/votes';
+var requestURL = '/votes/data';
 postRequest.open('GET', requestURL);
 postRequest.send();
 let voteData = null;
@@ -7,7 +8,7 @@ postRequest.addEventListener('load', function (event) {
     if (event.target.status === 200) {
         var postResponse = event.target.responseText;
         voteData = JSON.parse(postResponse);
-        console.log('voteData: ',voteData);
+        //console.log('voteData: ',voteData);
     } else {
       alert('Error get vote date: ' + event.target.response);
     }
@@ -20,3 +21,6 @@ for(var i=0;i<voteData.length;i++){
 }
 
 });
+}
+main();
+setInterval('main()',10000);
