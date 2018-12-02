@@ -2,12 +2,12 @@
 //var Handlebars = require("handlebars");
 //var partials = "./views/partials/";
 
-var fs = require('fs');
+//var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 
-var voteData = require('./voteData');
+//var voteData = require('./voteData');
 
 var MongoClient = require('mongodb').MongoClient;
 var mongoHost = process.env.MONGO_HOST || 'classmongo.engr.oregonstate.edu';
@@ -33,17 +33,17 @@ app.use(express.static('public'));
 app.get('/', function (req, res, next) {
   var voteCollection = mongoDB.collection('vote');
   //console.log('==',voteCollection);
-  voteCollection.find({ "id":"bar001" }).toArray(function (err, voteDocs) {
+  voteCollection.find({}).toArray(function (err, voteDocs) {
     if (err) {
       res.status(500).send("Error communicating with the DB.");
     } else if (voteDocs.length > 0) {
-      console.log('== vote: /n', voteDocs[0]);
+      res.status(200).render('homePage',{vote:voteDocs});
+      console.log('== vote: \n', voteDocs[0]);
     } else {
       next();
     }
   });
-  console.log("== homepage ==");
-  res.status(200).render('homePage',{vote:voteData});
+  console.log("== homepage!!! ==");
 });
 
 //app.get('/index', function (req, res, next) {
@@ -63,12 +63,12 @@ MongoClient.connect(mongoURL,{ useNewUrlParser: true },function (err, client) {
     throw err;
   }
   mongoDB = client.db(mongoDBName);
-  console.log("== connected success to ",mongoURL);
+  console.log("== connected success! ==");
   app.listen(port, function (err) {
     if (err) {
       throw err;
     }
-    console.log("== Server listening on port", port);
+    console.log("== Server listening on port", port," ==");
   })
   
 });
