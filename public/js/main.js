@@ -1,5 +1,4 @@
 /*nav*/
-
 var addbutton=document.getElementById("btadd")
 var searchbutton=document.getElementById("btsearch");
 /*createbox*/
@@ -32,16 +31,14 @@ function showandhide(box){
 function builddataset(){
 	
 }
-closebutton.onclick=function(){
-	closecreatebox();
-};
-canclebutton.onclick=function(){
-	closecreatebox();
-};
-addbutton.onclick=function(){
+closebutton.addEventListener("click",function(){closecreatebox()});
+canclebutton.addEventListener("click",function(){closecreatebox()});
+
+addbutton.addEventListener("click",function(){
 	showandhide(createbox);
 	showandhide(layer);
-}
+});
+
 function closecreatebox(){
 	showandhide(createbox);
 	showandhide(layer);
@@ -58,13 +55,20 @@ function closecreatebox(){
 	}
 
 }
-searchbutton.onclick=function(){
-	var searchbox=document.getElementById("filterbox");
-	showandhide(searchbox);
-};
 
-var btsubmit=document.getElementsByClassName("submitbutton")[0];
-btsubmit.onclick=function(){
-	var mediabox=document.getElementsByClassName("mediabox")[0];
-	showandhide(mediabox);
-};
+
+window.addEventListener('DOMContentLoaded', function () {
+	searchbutton.addEventListener("click",function(){
+		var searchbox=document.getElementById("filterbox");
+		showandhide(searchbox);
+	});
+	
+	var btsubmit=document.getElementsByClassName("submitbutton");
+
+	for(let i=0;i<btsubmit.length;i++){
+		btsubmit[i].addEventListener("click",function(){
+			var mediabox=document.getElementsByClassName("mediabox")[i];
+			showandhide(mediabox);
+		})
+	}
+});

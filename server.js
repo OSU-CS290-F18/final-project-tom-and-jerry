@@ -7,7 +7,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 
-//var voteData = require('./voteData');
+var voteData = require('./voteData');
 
 var MongoClient = require('mongodb').MongoClient;
 var mongoHost = process.env.MONGO_HOST || 'classmongo.engr.oregonstate.edu';
@@ -38,18 +38,36 @@ app.get('/', function (req, res, next) {
       res.status(500).send("Error communicating with the DB.");
     } else if (voteDocs.length > 0) {
       res.status(200).render('homePage',{vote:voteDocs});
-      console.log('== vote: \n', voteDocs[0]);
+      console.log("== homepage!!! ==");
+      //console.log('== vote: \n', voteDocs[0]);
     } else {
       next();
     }
   });
-  console.log("== homepage!!! ==");
+  //res.status(200).render('homePage',{vote:voteData});
+  
 });
 
 //app.get('/index', function (req, res, next) {
 //    console.log("== 200");
 //    res.status(200).render('homePage');
 //});
+
+app.get('/votes', function (req, res, next) {
+
+  var voteCollection = mongoDB.collection('vote');
+  //console.log('==',voteCollection);
+  voteCollection.find({}).toArray(function (err, voteDocs) {
+    if (err) {
+      res.status(500).send("Error communicating with the DB.");
+    } else if (voteDocs.length > 0) {
+      res.status(200).send(JSON.stringify(voteDocs));
+      //console.log('== vote: \n', voteDocs[0]);
+      console.log("== send vote data ==");
+    } 
+    next();
+  }); 
+});
 
 app.get('*', function (req, res, next) {
   console.log("== 404 ==");
