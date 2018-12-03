@@ -5,51 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Final Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/theme1.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/theme1.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.runtime.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.runtime.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+
+
  
 </head>
 <body>
- <canvas id="layer" class="hidden"></canvas>
-
   {{{body}}}
 </body>  
-	   <script src="./js/main.js"></script>
-           <script>
-	   var ctx = document.getElementById("0001");
-       var chartData={
-        "type": "pie",
-        "data": {
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            "datasets": [{
-                "label": "# of Votes",
-                "data": ["12", "19", "3", "5", "2", "3"],
-                "backgroundColor": [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(255, 206, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(255, 159, 64, 0.2)"
-                ],
-                "borderColor": [
-                    "rgba(255,99,132,1)",
-                    "rgba(54, 162, 235, 1)",
-                    "rgba(255, 206, 86, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)"
-                ],
-                "borderWidth": 1
-            }]
-        }
-        
-    }
-       var myChart = new Chart(ctx, chartData);
-	</script>
 
+<script src="/js/main.js"></script>
+<script src="/js/dhart.js"></script>
 </html>
