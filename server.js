@@ -7,7 +7,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 
-var voteData = require('./voteData');
+//var voteData = require('./voteData');
 
 var MongoClient = require('mongodb').MongoClient;
 var mongoHost = process.env.MONGO_HOST || 'classmongo.engr.oregonstate.edu';
@@ -82,6 +82,26 @@ app.post('/votes/userdata', function (req, res, next) {
     } 
   });
 });
+
+app.post('/votes/:id/:choice/:index', function (req, res, next) {
+  var _id = req.params.id.toString();
+  var choice = req.params.choice.toString();
+  var index = req.params.index.toString();
+ 
+  var voteCollection = mongoDB.collection('vote');
+  //var newdata = JSON.parse(req.body);
+  console.log("===",_id,typeof _id,choice,index);
+  voteCollection.updateOne({chartid:_id},{$inc:{[`chartData.data.datasets.0.data.${index}`]:1,"size":1}},function(err){
+    if (err) {
+      res.status(500).send("Error communicating with the DB.");
+    } else {
+      res.status(200).send();
+      console.log("== updated vote data ==");
+    } 
+  });
+});
+
+
 
 app.get('*', function (req, res, next) {
   console.log("== 404 ==");

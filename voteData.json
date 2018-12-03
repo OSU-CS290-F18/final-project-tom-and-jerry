@@ -1,26 +1,26 @@
 [
     {
-     "id":"bar001",
-     "chartid":"0001",
+    "publisher":"author",
+     "chartid":"anime",
      "type": "bar",
-     "size": "44",
+     "size": "100",
      "description":"This is a test vote",
      "options":[
-        {"option":"Red","name":"bar001"},
-        {"option":"Blue","name":"bar001"},
-        {"option":"Yellow","name":"bar001"},
-        {"option":"Green","name":"bar001"},
-        {"option":"Purple","name":"bar001"},
-        {"option":"Orange","name":"bar001"} 
+        {"option":"哆啦A梦","name":"anime"},
+        {"option":"哆啦B梦","name":"anime"},
+        {"option":"哆啦C梦","name":"anime"},
+        {"option":"哆啦D梦","name":"anime"},
+        {"option":"哆啦E梦","name":"anime"},
+        {"option":"哆啦F梦","name":"anime"} 
      ],
-     "photoURL":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc1gsfb8QynQR8mmEBXimRBtUYu1mBzWCJORiMs4dfLmOc4WYw",
+     "photoURL":"https://zh.wikipedia.org/wiki/File:Doraemon_volume_1_cover.jpg",
      "chartData":{
         "type": "bar",
         "data": {
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            "labels": ["哆啦A梦", "哆啦B梦", "哆啦C梦", "哆啦D梦", "哆啦E梦", "哆啦F梦"],
             "datasets": [{
-                "label": "# of Votes",
-                "data": [12, 19, 3, 5, 2, 3],
+                "label": "Anime",
+                "data": [20, 20, 20, 20, 20, 20],
                 "backgroundColor": [
                     "rgba(255, 99, 132, 0.2)",
                     "rgba(54, 162, 235, 0.2)",
@@ -42,20 +42,21 @@
         },
         "options": {"scales": {"yAxes": [{"ticks":{"beginAtZero":true}}]}}
     }
-    },
-    {
-        "id":"bar002",
+    }
+       ,
+       {
+        "publisher":"author",
         "chartid":"0002",
         "type": "bar",
         "size": "44",
         "description":"This is a test vote",
         "options":[
-           {"option":"Red","name":"bar001"},
-           {"option":"Blue","name":"bar001"},
-           {"option":"Yellow","name":"bar001"},
-           {"option":"Green","name":"bar001"},
-           {"option":"Purple","name":"bar001"},
-           {"option":"Orange","name":"bar001"} 
+           {"option":"Red","name":"0002"},
+           {"option":"Blue","name":"0002"},
+           {"option":"Yellow","name":"0002"},
+           {"option":"Green","name":"0002"},
+           {"option":"Purple","name":"0002"},
+           {"option":"Orange","name":"0002"} 
         ],
         "photoURL":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc1gsfb8QynQR8mmEBXimRBtUYu1mBzWCJORiMs4dfLmOc4WYw",
         "chartData":{

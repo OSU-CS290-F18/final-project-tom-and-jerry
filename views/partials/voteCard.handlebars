@@ -3,14 +3,17 @@
                     <img src="{{photoURL}}" class="imgBox">
                     <div class="textBox">{{description}}</div>
                 </div>
-				<div class="resultbox"><canvas id="{{chartid}}"></canvas></div>
-				<div class="infobox"><fieldset class="votebox" >
+				<div class="resultbox "><canvas id="{{chartid}}"></canvas></div>
+				<div class="infobox"><fieldset class="votebox" name="{{chartid}}">
                     <legend></legend>
 					{{#each options}}
                     {{> options}}
                     {{/each}}
 
-				</fieldset><button class="submitbutton">submit</button>
+				</fieldset>
+				<button class="submitbutton">submit</button>
+				<button class="showbutton">Show results</button>
+				<button class="hidebutton">Hide results</button>
                 
 				</div>
 			</div>
