@@ -120,7 +120,7 @@ var getInput=function(){
 				}
 				return arr;
 		   }
-	return new dataJson(inputpub.value,inputtitle.value,inputtype.options[index].value,inputdesc.value,namearray(),photourlinput.value,labelarr(),
+	return new dataJson(inputpub.value,inputtitle.value,inputtype.options[index].value,inputdesc.value,namearray(),photourlinput.value,chartoptions,
 			{
 			"label":inputtitle.value,
 			"data":data(),
@@ -141,6 +141,33 @@ var clearInput=function(){
 	for(index=0;index<(6-optionsContainer.length);index++){
 		inputnames[index].value="";
 	}
+}
+
+var checkIput = function(){
+	if(inputtitle.value===""){
+		swal ( "Oops" ,  "You need a title",  "warning" );
+		return 0;
+	}
+	if(inputpub.value===""){
+		swal ( "Oops" ,  "You need a publisher",  "warning" );
+		return 0;
+	}
+	if(inputdesc.value===""){
+		swal ( "Oops" ,  "Please simply describe your vote",  "warning" );
+		return 0;
+	}
+	if(inputdesc.value===""){
+		swal ( "Oops" ,  "Please simply describe your vote",  "warning" );
+		return 0;
+	}
+	for(index=0;index<(6-optionsContainer.length);index++){
+		if(inputnames[index].value===""){
+			swal ( "Oops" ,  "Option "+(index+1)+" wants a name",  "warning" );
+			return 0;
+		}
+	}
+	return 1;
+
 }
 
 function closecreatebox(){
@@ -173,6 +200,7 @@ var removeAlloption = function(){
 	}
 }
 
+
 var sendData = function(data){
 	var postRequest = new XMLHttpRequest();
 	var requestURL = '/votes/userdata';
@@ -180,7 +208,13 @@ var sendData = function(data){
 
 	var requestBody = JSON.stringify(data);
 	postRequest.addEventListener('load', function (event) {
-		if (event.target.status === 200) {
+		if (event.target.status === 200)  {
+			Handlebars.partials = Handlebars.templates;
+			var voteCardTemplate = Handlebars.templates.voteCard;
+			console.log("== ",data);
+			var newVoteCardHTML = voteCardTemplate(data);
+			var voteCardContainer = document.querySelector('#results');
+			voteCardContainer.insertAdjacentHTML('beforeend', newVoteCardHTML);
 			swal({
 				title: "Success",
 				text: "We have received your request!",
@@ -196,8 +230,81 @@ var sendData = function(data){
 	  postRequest.setRequestHeader('Content-Type', 'application/json');
 	  postRequest.send(requestBody);
 }
+var voteForIt = function(url){
+	var postRequest = new XMLHttpRequest();
+	var requestURL = "/votes"+url;
+	console.log('request: ',requestURL);
+	postRequest.open('POST', requestURL);
 
+	//var requestBody = JSON.stringify(data);
+	postRequest.addEventListener('load', function (event) {
+		if (event.target.status === 200) {
+			swal({
+				title: "Success",
+				text: "Thanks for your voting",
+				icon: "success",
+				button: "I knows!",
+			  });
+		} else {
+			swal ( "Oops" ,  "somethings Wrong \n"+event.target.response ,  "error" );
+		  //alert('Error storing photo: ' + event.target.response);
+		}
+	  });
+  
+	  postRequest.setRequestHeader('Content-Type', 'application/json');
+	  postRequest.send();
+}
+var btsubmit=document.getElementsByClassName("submitbutton");
+	var showButton=document.getElementsByClassName("showbutton");
+	var hideButton=document.getElementsByClassName("hidebutton");
+
+var newpostbuttonevent= function(){
+	for(let i=0;i<btsubmit.length;i++){
+		btsubmit[i].addEventListener("click",function(){
+			var votebox=document.getElementsByClassName("votebox")[i];
+			var id = votebox.name;
+			var target = 'input[name="'+id+'"]:checked';
+			var choice = votebox.querySelector(target);
+			if(choice){
+			var choiceValue = choice.value;
+			var options = votebox.querySelectorAll('input[name="'+id+'"]');
+			var j;
+			for (j=0;j<options.length;j++){
+				if(options[j].checked===true) break;
+			}
+			var url = '/'+id+"/"+choiceValue+'/'+j;
+			voteForIt(url)
+		}else
+			swal({title: "Ooops",
+			text: "You should choose an Option",
+			icon: "warning",
+			button: "OK!"});
+		})
+	}
+	for(let i=0;i<showButton.length;i++){
+		showButton[i].addEventListener("click",function(){
+			var mediabox=document.getElementsByClassName("mediabox")[i];
+			//var resultbox=document.getElementsByClassName("resultbox")[i];
+			mediabox.classList.add("hidden");
+			//resultbox.classList.remove("hidden");
+		})
+	}
+	for(let i=0;i<hideButton.length;i++){
+		hideButton[i].addEventListener("click",function(){
+			var mediabox=document.getElementsByClassName("mediabox")[i];
+			mediabox.classList.remove("hidden");
+			//var resultbox=document.getElementsByClassName("resultbox")[i];
+			//resultbox.classList.add("hidden");
+		})
+	}
+}
+function recaptchaCallback() {
+	createbutton.disabled = false;
+	createbutton.classList.remove('disabled');
+};
 window.addEventListener('DOMContentLoaded', function () {
+	//console.log("DOM fully loaded and parsed");
+	newpostbuttonevent();
 	addOptionButton.addEventListener("click",function(){
 		addAOption();
 	});
@@ -218,6 +325,9 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 
 	addbutton.addEventListener("click",function(){
+		createbutton.disabled = true;
+		createbutton.classList.add('disabled');
+		grecaptcha.reset();
 		showandhide(createbox);
 		showandhide(layer);
 	});
@@ -227,14 +337,17 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	createbutton.addEventListener("click",function(){
+		if(checkIput()){
 		sendData(getInput());
-		console.log("Output: ",getInput());
+		//console.log("Output: ",getInput());
 		setTimeout(function(){
+		newpostbuttonevent();
 		closecreatebox()
 		photoButton.classList.remove("hidden");
 		urlInput.classList.add("hidden");
 		removeAlloption();
 	},400);
+}
 	});
 
 	photoButton.addEventListener("click",function(){
@@ -242,12 +355,6 @@ window.addEventListener('DOMContentLoaded', function () {
 		urlInput.classList.remove("hidden");
 	});
 
-	var btsubmit=document.getElementsByClassName("submitbutton");
-
-	for(let i=0;i<btsubmit.length;i++){
-		btsubmit[i].addEventListener("click",function(){
-			var mediabox=document.getElementsByClassName("mediabox")[i];
-			showandhide(mediabox);
-		})
-	}
+	
+	
 });

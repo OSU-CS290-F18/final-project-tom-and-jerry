@@ -15,10 +15,12 @@ templates['voteCard'] = template({"1":function(container,depth0,helpers,partials
     + alias4(((helper = (helper = helpers.photoURL || (depth0 != null ? depth0.photoURL : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"photoURL","hash":{},"data":data}) : helper)))
     + "\" class=\"imgBox\">\n                    <div class=\"textBox\">"
     + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
-    + "</div>\n                </div>\n				<div class=\"resultbox\"><canvas id=\""
+    + "</div>\n                </div>\n				<div class=\"resultbox \"><canvas id=\""
     + alias4(((helper = (helper = helpers.chartid || (depth0 != null ? depth0.chartid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"chartid","hash":{},"data":data}) : helper)))
-    + "\"></canvas></div>\n				<div class=\"infobox\"><fieldset class=\"votebox\" >\n                    <legend></legend>\n"
+    + "\"></canvas></div>\n				<div class=\"infobox\"><fieldset class=\"votebox\" name=\""
+    + alias4(((helper = (helper = helpers.chartid || (depth0 != null ? depth0.chartid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"chartid","hash":{},"data":data}) : helper)))
+    + "\">\n                    <legend></legend>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.options : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n				</fieldset><button class=\"submitbutton\">submit</button>\n                \n				</div>\n			</div>";
+    + "\n				</fieldset>\n				<button class=\"submitbutton\">submit</button>\n				<button class=\"showbutton\">Show results</button>\n				<button class=\"hidebutton\">Hide results</button>\n                \n				</div>\n			</div>";
 },"usePartial":true,"useData":true});
 })();
