@@ -139,19 +139,19 @@ margin: 0 0 0 0;
 	float:left;
 }
 #createbox{
-	z-index: 99;
+	z-index: 98;
+	font-family:"Comic Sans MS", cursive, sans-serif;
 	margin: 0 0 0 0;
 	position: absolute;
 	top: 5%;
 	left:30%;
 	vertical-align: middle;
-	width: 700px;
-	height: 800px;
+	width: 650px;
 	border-radius: 12px 12px 12px 12px;
-	font-size: 30px;
+	font-size: 16px;
 }
 #layer{
-	position: absolute;
+	position: fixed;
 	top:0;
 	left:0;
 	z-index: 98;
@@ -160,7 +160,8 @@ margin: 0 0 0 0;
 }
 
 #createheader{
-	height:50px;
+	font-size: 30px;
+	height:20px;
 	margin:0 0 0 0;
 	padding-left: 20px;
 	padding-top: 10px;
@@ -181,43 +182,27 @@ margin: 0 0 0 0;
 	padding:0 0 0 0;
 }
 .create-input-box{
-	height: 60px;
-	margin:0 0 0 10px;
-	padding-right: 0;
-	vertical-align: middle;
+	margin:10px 0 10px 10px;
 }
 .create-input-box > label{
 	width:100px;
 	margin:0 15px 0 0;
 	
 }
-#input-desc, #input-pub{
 
-}
-#input-desc input{
-	padding: 0 0 0 0;
-	font-size: 30px;
-	height: 40px;
-	width:500px;
-}
-#input-pub input{
-	padding: 0 0 0 0;
-	font-size: 30px;
-	height: 40px;
-	width:531px;
-}
+
+
 #chart-options{
 	display: flex;
 }
-#datainput{
-	width:700px;
-	height:360px;
-}
+
+
 
 .inputdata{
+	display: inline-block;
 	padding-left: 10px;
-	width: 690px;
-	height:60px;
+	min-width: 100%;
+	height:35px;
 	margin:0 0 0 0;
 }
 .inputdata > label{
@@ -226,50 +211,233 @@ margin: 0 0 0 0;
 	padding:0 0 0 0;
 
 }
-#createbox{
-	font-family:"Comic Sans MS", cursive, sans-serif;	
-}
- #createheader{
-	height: 50px;
+
+#input-title{
+	height: 25px;
+	margin-right: auto;
+	display: inline-block;
+	max-width: 340px;
+	flex: 1 auto;
 }
  #titleinput{
-	width: 593px;
-	height: 35px;
+	max-width: 250px;
+	height: 18px;
+	border-radius: 3px;
+	border-style: solid;
+	border-color: deepskyblue;
 }
  #descinput{
-	margin-top: 10px;
-	height: 36px;
+	height: 25px;
+	padding: 0 0 0 0;
+	width:70%;
+	border-radius: 3px;
+	border-style: solid;
+	border-color: deepskyblue;
+}
+#input-pub{
+	height: 25px;
+	margin-right: auto;
+	display: inline-block;
+	width: 300px;
+	flex: 1 auto;
 }
  #pubinput{
-	margin-top: 15px;
-	height: 36px;
+	margin-top: 10px;
+	height: 20px;
+	border-radius: 3px;
+	border-style: solid;
+	border-color: deepskyblue;
 }
  #chart-options{
 	margin-top: 10px;
 }
  #typeinput{
-	height: 44px;
+	height: 30px;
 	margin-left: 10px;
 	margin-right: 20px;
+	border-color: deepskyblue;
 }
  #optionsinput{
-	height: 44px;
+	height: 30px;
 	margin-left: 10px;
 	width: 89px;
+	border-color: deepskyblue;
 }
  #photoinput{
 	margin-top: 10px;
-	width: 513px;
-	height: 38px;
+	width: 70%;
+	height: 20px;
+	border-radius: 3px;
+	border-style: solid;
+	border-color: deepskyblue;
 }
+#photobutton {
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	display: block;
+	border-radius: 4px;
+	background-color: deepskyblue;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 16px;
+	padding: 18px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+  }
+  #photobutton span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+  
+  #photobutton span:after {
+	content: '»';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+  }
+  
+  #photobutton:hover span {
+	padding-right: 25px;
+  }
+  
+  #photobutton:hover span:after {
+	opacity: 1;
+	right: 0;
+  }
  #datainput{
+	display: inline-block;
+	margin-right: auto;
+	width: 70%;
 	margin-top: 15px;
+	margin-left: 10px;
+	height: auto;
+	border-radius: 3px;
+	border-style: solid;
+	border-color: deepskyblue;
+}
+#removeoptionbutton{
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	max-height: 220px;
+	position: absolute;
+	margin-top: 80px;
+	margin-left: 40px;
+	display: inline-block;
+	border-radius: 4px;
+	background-color: deepskyblue;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 30px;
+	padding: 0px;
+	width: 50px;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+#removeoptionbutton:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#addoptionbutton{    
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	max-height: 220px;
+	position: absolute;
+	margin-top: 30px;
+	margin-left: 40px;
+	display: inline-block;
+	border-radius: 4px;
+	background-color: deepskyblue;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 30px;
+	padding: 0px;
+	width: 50px;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+#addoptionbutton:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#createbuttonbar{
+	margin: 7px;
+}
+#btcreate {
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	height: 50px;
+	border-radius: 3px;
+    position: relative;
+    background-color: deepskyblue;
+    border: none;
+	font-size: 17px;
+    color: rgb(203, 88, 207);
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#btcreate:after {
+    content: "";
+    background: skyblue;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#btcreate:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+#btclose{
+	margin: 20px;
+	padding: 5px;
+	cursor: pointer;
+	width: 30px;
+	height: 30x;
+	font-size: 25px;
+}
+#btcancle{
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	height: 50px;
+	border-radius: 3px;
+	position: relative;
+    background-color: deepskyblue;
+    border: none;
+    font-size: 17px;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
 }
  .inputname{
+	margin-top: 5px;
 	margin-left: 15px;
-	width: 250px;
-	height: 44px;
-	
+	width: 80%;
+	height: 20px;
+	border-radius: 3px;
+	border-style: solid;
+	border-color: deepskyblue;
 }
  .inputvalue{
 	margin-left: 10px;
@@ -278,7 +446,7 @@ margin: 0 0 0 0;
 }
 
 .hidden{
-	display:none;
+	display:none !important;
  }
 #error{
 	margin:0 0 0 0;

@@ -69,6 +69,20 @@ app.get('/votes/data', function (req, res, next) {
   }); 
 });
 
+app.post('/votes/userdata', function (req, res, next) {
+
+  var voteCollection = mongoDB.collection('vote');
+  //var newdata = JSON.parse(req.body);
+  voteCollection.insertOne(req.body,function(err){
+    if (err) {
+      res.status(500).send("Error communicating with the DB.");
+    } else {
+      res.status(200).send();
+      console.log("== received vote data ==");
+    } 
+  });
+});
+
 app.get('*', function (req, res, next) {
   console.log("== 404 ==");
   res.status(404).render('404');
