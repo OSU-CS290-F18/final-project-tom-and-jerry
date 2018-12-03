@@ -16,9 +16,10 @@ postRequest.addEventListener('load', function (event) {
 
 for(var i=0;i<voteData.length;i++){
     var ctx = document.getElementById(voteData[i].chartid);
-    
+    if(ctx){
     var chartData=voteData[i].chartData;
     myChart = new Chart(ctx, chartData);
+    }
 }
 
 });
