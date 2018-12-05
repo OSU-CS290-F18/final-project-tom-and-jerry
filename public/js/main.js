@@ -126,7 +126,7 @@ var getInput=function(){
 			"data":data(),
 			"backgroundColor":backgroundColor(),
 			"borderColor":borderColor(),
-		   "borderWidth": 1
+		    "borderWidth": 1
 			}
 	);
 }
@@ -243,7 +243,7 @@ var voteForIt = function(url){
 				title: "Success",
 				text: "Thanks for your voting",
 				icon: "success",
-				button: "I knows!",
+				button: "OK!",
 			  });
 		} else {
 			swal ( "Oops" ,  "somethings Wrong \n"+event.target.response ,  "error" );
@@ -255,8 +255,8 @@ var voteForIt = function(url){
 	  postRequest.send();
 }
 var btsubmit=document.getElementsByClassName("submitbutton");
-	var showButton=document.getElementsByClassName("showbutton");
-	var hideButton=document.getElementsByClassName("hidebutton");
+var showButton=document.getElementsByClassName("showbutton");
+var hideButton=document.getElementsByClassName("hidebutton");
 
 var newpostbuttonevent= function(){
 	for(let i=0;i<btsubmit.length;i++){
@@ -358,3 +358,78 @@ window.addEventListener('DOMContentLoaded', function () {
 	
 	
 });
+var outDiv = document.getElementById('results');  
+        outDiv.onwheel = function(event){    
+            event.preventDefault();  
+            var step = 50;  
+            if(event.deltaY < 0){  
+                this.scrollLeft -= step;  
+            } else {   
+                this.scrollLeft += step;  
+            }  
+		}
+
+var results=document.getElementById("results");
+
+function refreshAll(){
+	var postRequest = new XMLHttpRequest();
+	var requestURL = '/votes/data';
+	postRequest.open('GET', requestURL);
+	postRequest.send();
+	let voteData = null;
+	postRequest.addEventListener('load', function (event) {
+		if (event.target.status === 200) {
+			var postResponse = event.target.responseText;
+			voteData = JSON.parse(postResponse);
+		} else {
+		  alert('Error get vote date: ' + event.target.response);
+		}
+	for(var i =0; i<voteData.length;i++){
+		Handlebars.partials = Handlebars.templates;
+		var voteCardTemplate = Handlebars.templates.voteCard;
+		var div=voteCardTemplate(voteData[i]);
+		results.insertAdjacentHTML('beforeend',div);
+		
+	}
+})
+}
+function getDataFromServer(value){
+	var postRequest = new XMLHttpRequest();
+	var requestURL = '/votes/data';
+	postRequest.open('GET', requestURL);
+	postRequest.send();
+	let voteData = null;
+	postRequest.addEventListener('load', function (event) {
+		if (event.target.status === 200) {
+			var postResponse = event.target.responseText;
+			voteData = JSON.parse(postResponse);
+		} else {
+		  alert('Error get vote date: ' + event.target.response);
+		}
+	for(var i =0; i<voteData.length;i++){
+		Handlebars.partials = Handlebars.templates;
+		var voteCardTemplate = Handlebars.templates.voteCard;
+		var description=voteData[i].description;
+	   if(description.toLowerCase().indexOf(value.toLowerCase())>=0){
+		var div=voteCardTemplate(voteData[i]);
+		results.insertAdjacentHTML('beforeend',div);}
+		
+	}
+})
+}
+
+var searchText=document.getElementById("searchText");
+searchText.onkeyup=function(){
+	if(searchText.value===""){
+		while(results.firstChild) {
+			results.removeChild(results.firstChild);
+	}
+		refreshAll();
+	}
+ else{
+	while(results.firstChild) {
+        results.removeChild(results.firstChild);
+}
+	var text=searchText.value;
+	getDataFromServer(text);}
+};
