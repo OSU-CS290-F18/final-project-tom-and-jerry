@@ -8,6 +8,8 @@ var optionsContainer=[
 /*nav*/
 var addbutton=document.getElementById("btadd")
 var searchbutton=document.getElementById("btsearch");
+var aboutbutton=document.getElementById("about-button");
+var aboutwindow=document.getElementById("aboutus");
 /*createbox*/
 var closebutton=document.getElementById("btclose");
 var canclebutton=document.getElementById("btcancle");
@@ -36,6 +38,7 @@ function showandhide(box){
 		box.classList.add("hidden");
 	}
 }
+aboutbutton.onclick=function(){showandhide(aboutwindow)};
 /*create*/
 var dataJson=function(_publisher,title,_type,_description,_options,_url,_labels,_datasets,){
 	this.publisher=_publisher,
@@ -391,9 +394,9 @@ function refreshAll(){
 		results.insertAdjacentHTML('beforeend',div);
 		
 	}
-})
+	newpostbuttonevent();})
 }
-function getDataFromServer(value){
+function searchByText(value){
 	var postRequest = new XMLHttpRequest();
 	var requestURL = '/votes/data';
 	postRequest.open('GET', requestURL);
@@ -415,11 +418,12 @@ function getDataFromServer(value){
 		results.insertAdjacentHTML('beforeend',div);}
 		
 	}
-})
+	newpostbuttonevent();})
 }
 
 var searchText=document.getElementById("searchText");
 searchText.onkeyup=function(){
+	searchType.value="Any";
 	if(searchText.value===""){
 		while(results.firstChild) {
 			results.removeChild(results.firstChild);
@@ -431,5 +435,48 @@ searchText.onkeyup=function(){
         results.removeChild(results.firstChild);
 }
 	var text=searchText.value;
-	getDataFromServer(text);}
+	searchByText(text);}
+};
+
+function searchByType(value){
+	var postRequest = new XMLHttpRequest();
+	var requestURL = '/votes/data';
+	postRequest.open('GET', requestURL);
+	postRequest.send();
+	let voteData = null;
+	postRequest.addEventListener('load', function (event) {
+		if (event.target.status === 200) {
+			var postResponse = event.target.responseText;
+			voteData = JSON.parse(postResponse);
+		} else {
+		  alert('Error get vote date: ' + event.target.response);
+		}
+	for(var i =0; i<voteData.length;i++){
+		Handlebars.partials = Handlebars.templates;
+		var voteCardTemplate = Handlebars.templates.voteCard;
+		var type=voteData[i].type;
+	   if(type===value){
+		var div=voteCardTemplate(voteData[i]);
+		results.insertAdjacentHTML('beforeend',div);
+		
+	}	
+	}
+	newpostbuttonevent();})
+}
+
+var searchType=document.getElementById("selectBox");
+searchType.onchange=function(){
+	if(searchType.value==="Any"){
+		while(results.firstChild) {
+			results.removeChild(results.firstChild);
+	}
+		refreshAll();
+	}
+ else{
+	while(results.firstChild) {
+        results.removeChild(results.firstChild);
+}
+	var text=searchType.value;
+	searchByType(text);}
+	newpostbuttonevent();
 };

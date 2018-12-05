@@ -86,35 +86,38 @@ body{
 	height: 600px;
 	width: 400px;
 	position:relative;
-	border: solid 5px;
 }
 .mediabox{
 	position: absolute;
 	top:0;
 	left:0;
-	width:380px;
-	height: 280px;
-	display: block;
-	padding:10px 10px 10px 10px;
+	width:390px;
+	height: 290px;
+	display: flex;
+	padding:0 0 0 0;
+	border:solid 5px;
 	text-align: center;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content:center;
 
 }
 .textBox{
 	padding: 0px 0px 0px 0px;
     width:380px;
-	height:20%;
+	max-height:20%;
 	white-space: pre-wrap;
 }
 .imgBox{
-	position: relative;
 	max-height: 80%;
 	max-width:100%; 
-	top:50%;
 }
 .resultbox{
-	width:100%;
-	height: 300px;
+	width: 390px;;
+	height: 290px;
 	padding: 0 0 0 0;
+	border:solid 5px;
 	display: flex;
 	align-items: center;
 }
@@ -122,22 +125,56 @@ body{
 
 .infobox{
 	width:100%;
-	height:300px;
+	height:240px;
 	padding: 0 0 0 0;
+
 }
-.infobox img{
-	height:30%;
-}
+
 .votebox{
 height:240px;
 padding: 0 0 0 0;
 border: none;
 margin: 0 0 0 0;
+font-size:28px;
+word-wrap:break-word;
+}
+input[type=radio] {
+    border: 0px;
+	height: 2em;
+	margin-left:10px;
+	margin-right:5px;
+}
+.post button:focus{
+	outline: none;
+}
+.post button{
+	font-size: 25px;
 }
 .votechoice{
 	height:80px;
 	width:200px;
 	float:left;
+}
+.buttonbar{
+	height: 60px;
+	padding:0 0 0 0;
+}
+.submitbutton{
+	width: 200px;
+	height:60px;
+	margin:0 0 0 0;
+	padding: 0 0 0 0;
+	border: none;
+	float: left;
+
+}
+.showbutton,.hidebutton{
+	width:100px;
+	height:60px;
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+	border: none;
+	float: left;
 }
 #createbox{
 	z-index: 98;

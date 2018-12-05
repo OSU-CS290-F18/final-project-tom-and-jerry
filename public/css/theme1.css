@@ -63,23 +63,42 @@ html{
 }
 .post{
 	background: #FFFFFF;
-	border-color:#d2c0f9;
+	
 }
 .mediabox{
 	background: #F8F8F8;
+	border-color:#d2c0f9;
 }
 .infobox{
 	background:  #d2c0f9;
 	color: aliceblue;
 
 }
+.resultbox{
+	border-color:#d2c0f9;
+}
+.buttonbar{
+	border-color:#d2c0f9;
+}
+.post button{
+	color:aliceblue;
+}
+.submitbutton{
+	background: #beedff;
+
+}
+.showbutton{
+	background: #9ec4f6;
+}
+.hidebutton{
+	background: #7db1f7;
+}
 #createbox{
 	animation:show 450ms;
-
 	background: #F8F8F8;
 }
 #layer{
-	animation:show 3500ms;
+	animation:show 350ms;
 	background-color:rgba(190, 255, 248, 0.75);
 }
 #titleinput,#descinput,#pubinput,#typeinput,#optionsinput,#photoinput,#photobutton,#datainput,.inputname{
