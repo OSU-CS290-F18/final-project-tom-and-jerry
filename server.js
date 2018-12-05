@@ -28,8 +28,8 @@ app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());
 
-app.use(express.static('public'));
 
+app.use(express.static('public'));
 app.get('/', function (req, res, next) {
   var voteCollection = mongoDB.collection('vote');
   //console.log('==',voteCollection);

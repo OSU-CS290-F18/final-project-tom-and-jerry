@@ -1,11 +1,11 @@
 html{
-	background-color: #ff9f00;
+	background-color: #a5eaff;
 }
 #nav{
-    background-color: #d76c29;
+	background-color: #9ec4f6;
 }
 #content{
-	background-color: #ff9f00;
+	background-color: #a5eaff;
 }
 .nav-button{
 	color:#E2F9FF;
@@ -16,8 +16,8 @@ html{
 	font-weight: bolder;
 }
 .navbutton:hover{
-	animation:navAni 500ms;
-	background-color: #c84a1a;
+	animation:show 650ms;
+	background-color:#5b68f8;
 }
 @keyframes navAni
 {
@@ -33,34 +33,69 @@ html{
 	90%  {background:#CA4D1C;}
 	100% {background:#c84a1a;}
 }
-#toolbox{
-	background: #febb00;
-	color: aliceblue;
+@keyframes show
+{
+	0%   {opacity: 0;}
+	5%  {opacity: 0.05;}
+	10%  {opacity: 0.1;}
+	15%  {opacity: 0.15;}
+	20%  {opacity: 0.2;}
+	25%  {opacity: 0.25;}
+	30%  {opacity: 0.3;}
+	35%  {opacity: 0.35;}
+	40%  {opacity: 0.4;}
+	45%  {opacity: 0.45;}
+	50%  {opacity: 0.5;}
+	55%  {opacity: 0.55;}
+	60%  {opacity: 0.6;}
+	65%  {opacity: 0.65;}
+	70%  {opacity: 0.7;}
+	75%  {opacity: 0.75;}
+	80%  {opacity: 0.8;}
+	85%  {opacity: 0.85;}
+	90%  {opacity: 0.9;}
+	95%  {opacity: 0.95;}
+	100% {opacity: 1;}
 }
 
 #bigbox{
-	background:#D36225;
+	background-color: #a5deff;
 }
 .post{
 	background: #FFFFFF;
+	border-color:#d2c0f9;
 }
 .mediabox{
 	background: #F8F8F8;
 }
 .infobox{
-	background:  #404e73;
+	background:  #d2c0f9;
 	color: aliceblue;
 
 }
 #createbox{
+	animation:show 450ms;
+
 	background: #F8F8F8;
 }
 #layer{
-	background-color:rgba(211, 96, 37, 0.75);
+	animation:show 3500ms;
+	background-color:rgba(190, 255, 248, 0.75);
 }
-#datainput{
-
+#titleinput,#descinput,#pubinput,#typeinput,#optionsinput,#photoinput,#photobutton,#datainput,.inputname{
+	border-color: deepskyblue;
 }
-.inputdata{
-
+#photobutton,#removeoptionbutton,#addoptionbutton,#btcancle{
+	background-color: deepskyblue;
+	color: #FFFFFF;
+}
+#removeoptionbutton:hover,#addoptionbutton:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 40px 0 rgba(0,0,0,0.19);
+}
+#btcreate{
+	background-color: deepskyblue;
+	color: rgb(203, 88, 207);
+}
+#btcreate:after{
+    background: skyblue;
 }
