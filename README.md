@@ -1,5 +1,5 @@
 # final-project-tom-and-jerry  
-![Logo](final-project-tom-and-jerry/public/logo.png)
+<img src="public/logo.png" width = "100" height = "100" />
 ## Vote Page  
 Team Tom_And_Jerry  
 **Team Members:**  
@@ -7,4 +7,4 @@ Team Tom_And_Jerry
               *Ying Li*  
               *Yujie Wang*
 
-<a href="mailto:xuna@oregonstate.edu">Any questions?</a>
+<a href="mailto:liyi4@oregonstate.edu">Any questions?</a>
