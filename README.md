@@ -8,3 +8,8 @@ Team Tom_And_Jerry
               *Yujie Wang*
 
 <a href="mailto:liyi4@oregonstate.edu">Any questions?</a>
+## Intro
+This is a vote app powered by chart.js 
+## Start
+`npm install`<br>
+`npm start`
