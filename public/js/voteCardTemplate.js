@@ -21,6 +21,6 @@ templates['voteCard'] = template({"1":function(container,depth0,helpers,partials
     + alias4(((helper = (helper = helpers.chartid || (depth0 != null ? depth0.chartid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"chartid","hash":{},"data":data}) : helper)))
     + "\">\n                    <legend></legend>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.options : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n				</fieldset>\n				<button class=\"submitbutton\">submit</button>\n				<button class=\"showbutton\">Show results</button>\n				<button class=\"hidebutton\">Hide results</button>\n                \n				</div>\n			</div>";
+    + "\n				</fieldset>\n				</div>\n				<div class=\"buttonbar\">\n				<button class=\"submitbutton\">submit</button>\n				<button class=\"showbutton\">Show</button>\n				<button class=\"hidebutton\">Hide</button>\n                </div>\n			</div>";
 },"usePartial":true,"useData":true});
 })();

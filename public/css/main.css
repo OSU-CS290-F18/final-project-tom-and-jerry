@@ -141,8 +141,7 @@ word-wrap:break-word;
 input[type=radio] {
     border: 0px;
 	height: 2em;
-	margin-left:10px;
-	margin-right:5px;
+
 }
 .post button:focus{
 	outline: none;
@@ -154,6 +153,8 @@ input[type=radio] {
 	height:80px;
 	width:200px;
 	float:left;
+	padding: 0 0 0 0;
+	word-break:break-all;
 }
 .buttonbar{
 	height: 60px;
