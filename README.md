@@ -1,5 +1,6 @@
 # final-project-tom-and-jerry  
-### Vote Page  
+![Logo](final-project-tom-and-jerry/public/logo.png)
+## Vote Page  
 Team Tom_And_Jerry  
 **Team Members:**  
               *Naisen Xu*  
